@@ -1,0 +1,88 @@
+package ar.org.centro8.curso.java.aplicaciones.dao.rest.cliente;
+
+import ar.org.centro8.curso.java.aplicaciones.dao.interfaces.I_FacturaRepository;
+import ar.org.centro8.curso.java.aplicaciones.entities.Factura;
+import ar.org.centro8.curso.java.aplicaciones.enumerados.Letra;
+import java.util.List;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.ArrayList;
+
+public class FacturaRepository implements I_FacturaRepository{
+    public String uri;
+
+    public FacturaRepository(String uri) {
+        this.uri = uri;
+    }
+
+    @Override
+    public void save(Factura factura) {
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(uri + "alta?letra="+factura.getLetra()
+                        +"&numero="+factura.getNumero()
+                        +"&fecha="+factura.getFecha()
+                        +"&monto="+factura.getMonto()
+                        +"&idCliente="+factura.getIdCliente()))
+                    .build();
+            HttpResponse<String> response = client.send(request,
+                    HttpResponse.BodyHandlers.ofString());
+            factura.setId(Integer.parseInt(response.body()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void remove(Factura factura) {
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(uri + "baja?id=" + factura.getId()))
+                    .build();
+            HttpResponse<String> response = client.send(request,
+                    HttpResponse.BodyHandlers.ofString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void update(Factura factura) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Factura> getAll() {
+        List<Factura>list=new ArrayList();
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(uri + "getAll"))
+                    .build();
+            HttpResponse<String> response = client.send(request,
+                    HttpResponse.BodyHandlers.ofString());
+            String resp = response.body();                
+            String[] lines=resp.split("Factura");
+            for(String l:lines){
+                int longitud=l.length();
+                if(longitud>0){
+                l=l.substring(1,longitud -2);
+                String[] campos=l.split(", ");
+                list.add(new Factura(
+                        Integer.parseInt(campos[0].substring(3)),
+                        Letra.valueOf(campos[1].substring(6)),
+                        Integer.parseInt(campos[2].substring(7)),
+                        campos[3].substring(6),
+                        Double.parseDouble(campos[4].substring(6)),
+                        Integer.parseInt(campos[5].substring(10))
+                ));
+            }
+            }
+        } catch (Exception e) {e.printStackTrace(); }
+        return list;
+    }    
+}

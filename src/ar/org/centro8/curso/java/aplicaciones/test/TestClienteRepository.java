@@ -12,9 +12,9 @@ public class TestClienteRepository {
         System.out.println("****************************\n");
         
         System.out.println("Ingreso 2 clientes (Marcelo Ramirez y Carlos Paez)con el método 'save'");
-        Cliente cliente=new Cliente("Mario", "Ramos", TipoDocumento.DNI, 37412822, "Brown_354", null);
+        Cliente cliente=new Cliente("Mario", "Ramos", TipoDocumento.DNI, 39912822, "Brown_354", null);
         cr.save(cliente);
-        Cliente cliente2= new Cliente("Claudio", "Parrili", TipoDocumento.DNI, 12349922, "Belgrano_165","cliente_corporativo");
+        Cliente cliente2= new Cliente("Claudio", "Parrili", TipoDocumento.DNI, 19949922, "Belgrano_165","cliente_corporativo");
         cr.save(cliente2);
         System.out.println(cliente+"\n"+cliente2);
         System.out.println("\n****************************\n");
