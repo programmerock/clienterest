@@ -77,7 +77,7 @@ public class FacturaRepository implements I_FacturaRepository{
                         Letra.valueOf(campos[1].substring(6)),
                         Integer.parseInt(campos[2].substring(7)),
                         campos[3].substring(6),
-                        Double.parseDouble(campos[4].substring(6)),
+                        Double.parseDouble(campos[4].substring(6).replaceAll(",", ".")),
                         Integer.parseInt(campos[5].substring(10))
                 ));
             }

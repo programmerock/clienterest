@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/dao/rest/cliente/ArticuloRepository.java</file>
             <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/test/TestFacturaRepository.java</file>
             <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/test/TestClienteRepository.java</file>
             <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/dao/rest/cliente/ClienteRepository.java</file>
             <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/dao/rest/cliente/FacturaRepository.java</file>
+            <file>file:/C:/Users/USER/Francisco/Programación/Especialización%20Web/Aplicaciones%20Web/New%20Folder/ClienteRest/src/ar/org/centro8/curso/java/aplicaciones/dao/interfaces/I_FacturaRepository.java</file>
         </group>
     </open-files>
 </project-private>
